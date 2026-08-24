@@ -105,12 +105,14 @@ const HeavyDiscountProducts: React.FC = () => {
                       No image
                     </div>
                   )}
+                  {/* Discount overlay (commented out — value removed per request)
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-2.5 flex items-end justify-center min-h-[3.5rem]">
                     <span className="text-white text-lg nav:text-xl font-bold drop-shadow-lg tracking-tight">
                       {Math.round(discount)}% OFF
                     </span>
                   </div>
+                  */}
                 </div>
               </Link>
             );

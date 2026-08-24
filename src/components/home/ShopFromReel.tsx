@@ -3,39 +3,20 @@ import { Star, Play, Heart, Share2, Bookmark } from 'lucide-react';
 import { useHorizontalScroll } from '../../hooks/useHorizontalScroll';
 
 import { formatMoney } from "../../utils/money";
-const REEL_VIDEOS = [
-  'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750957/WhatsApp_Video_2026-03-17_at_18.02.36_vmxttu.mp4',
-  'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750955/WhatsApp_Video_2026-03-17_at_18.02.49_m1opbc.mp4',
-  'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750956/WhatsApp_Video_2026-03-17_at_18.02.48_givg5v.mp4',
-  'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750956/WhatsApp_Video_2026-03-17_at_18.02.47_dqhemu.mp4',
-  'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750955/WhatsApp_Video_2026-03-17_at_18.02.37_u9wffg.mp4',
-  'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750954/WhatsApp_Video_2026-03-17_at_18.02.49_1_qhbx22.mp4',
-];
 
-// Fallback only. The live values come from GET /api/reels/showcase, which prices
-// them server-side like every other amount, so the strip follows the currency
-// switcher. These stay here purely so the overlay still renders if that call
-// fails — and they are INR, which is why each item carries its own currency
-// rather than being formatted in whatever happens to be active.
+// Prices default to INR — the reels API returns raw numeric prices without
+// a currency field, matching the mobile app which is INR-only.
 const FALLBACK_CURRENCY = "INR";
 
-const REEL_PRODUCTS = [
-  { name: 'Men\'s Premium Casual Wear Collection', price: 1199, originalPrice: 2199 },
-  { name: 'Classic Stud Earrings', price: 449, originalPrice: 699 },
-  { name: 'Luxury Analog Watches', price: 2499, originalPrice: 3999 },
-  { name: 'Elegant Jewellery Set', price: 899, originalPrice: 1299 },
-  { name: 'Women\'s Office Formal Dresses', price: 699, originalPrice: 999 },
-  { name: 'Delicate Pendant Necklace', price: 349, originalPrice: 599 },
+// Static fallback shown only if GET /api/reels/public fails. Prices are INR.
+const FALLBACK_REELS: ReelItem[] = [
+  { videoUrl: 'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750957/WhatsApp_Video_2026-03-17_at_18.02.36_vmxttu.mp4', name: 'Men\'s Premium Casual Wear Collection', price: 1199, originalPrice: 2199, currency: FALLBACK_CURRENCY, likesCount: 158000, sharesCount: 42000, savesCount: 71000, productUrl: null },
+  { videoUrl: 'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750955/WhatsApp_Video_2026-03-17_at_18.02.49_m1opbc.mp4', name: 'Classic Stud Earrings', price: 449, originalPrice: 699, currency: FALLBACK_CURRENCY, likesCount: 165000, sharesCount: 45000, savesCount: 76000, productUrl: null },
+  { videoUrl: 'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750956/WhatsApp_Video_2026-03-17_at_18.02.48_givg5v.mp4', name: 'Luxury Analog Watches', price: 2499, originalPrice: 3999, currency: FALLBACK_CURRENCY, likesCount: 172000, sharesCount: 48000, savesCount: 81000, productUrl: null },
+  { videoUrl: 'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750956/WhatsApp_Video_2026-03-17_at_18.02.47_dqhemu.mp4', name: 'Elegant Jewellery Set', price: 899, originalPrice: 1299, currency: FALLBACK_CURRENCY, likesCount: 179000, sharesCount: 51000, savesCount: 86000, productUrl: null },
+  { videoUrl: 'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750955/WhatsApp_Video_2026-03-17_at_18.02.37_u9wffg.mp4', name: 'Women\'s Office Formal Dresses', price: 699, originalPrice: 999, currency: FALLBACK_CURRENCY, likesCount: 186000, sharesCount: 54000, savesCount: 91000, productUrl: null },
+  { videoUrl: 'https://res.cloudinary.com/ddnb10zkq/video/upload/v1773750954/WhatsApp_Video_2026-03-17_at_18.02.49_1_qhbx22.mp4', name: 'Delicate Pendant Necklace', price: 349, originalPrice: 599, currency: FALLBACK_CURRENCY, likesCount: 193000, sharesCount: 57000, savesCount: 96000, productUrl: null },
 ];
-
-// Random counts in range (seeded by index so they're stable)
-function getReelCounts(index: number): { likes: number; shares: number; saves: number } {
-  const s = index * 7 + 11;
-  const likes = 150000 + (s % 51) * 1000;      // 150K–200K
-  const shares = 30000 + ((s + 3) % 31) * 1000; // 30K–60K
-  const saves = 50000 + ((s + 5) % 51) * 1000;  // 50K–100K
-  return { likes, shares, saves };
-}
 
 function formatCount(n: number): string {
   if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
@@ -43,27 +24,36 @@ function formatCount(n: number): string {
   return String(n);
 }
 
-interface ReelProduct {
+// Save count isn't provided by the public reels API; derive a stable
+// per-reel value so the icon isn't blank.
+function seededSaves(index: number): number {
+  const s = index * 7 + 11;
+  return 50000 + ((s + 5) % 51) * 1000;
+}
+
+interface ReelItem {
+  videoUrl: string;
   name: string;
   price: number;
   originalPrice: number;
   /** What `price` and `originalPrice` are denominated in. Never assumed. */
   currency: string;
+  likesCount: number;
+  sharesCount: number;
+  savesCount: number;
+  productUrl: string | null;
 }
 
 interface ReelCardProps {
-  videoUrl: string;
-  product: ReelProduct;
-  index: number;
+  item: ReelItem;
 }
 
-const ReelCard: React.FC<ReelCardProps> = ({ videoUrl, product, index }) => {
+const ReelCard: React.FC<ReelCardProps> = ({ item }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [liked, setLiked] = useState(false);
   const [saved, setSaved] = useState(false);
-  const counts = getReelCounts(index);
-  const [displayLikes, setDisplayLikes] = useState(counts.likes);
-  const [displaySaves, setDisplaySaves] = useState(counts.saves);
+  const [displayLikes, setDisplayLikes] = useState(item.likesCount);
+  const [displaySaves, setDisplaySaves] = useState(item.savesCount);
 
   const handleLike = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -86,18 +76,19 @@ const ReelCard: React.FC<ReelCardProps> = ({ videoUrl, product, index }) => {
   const handleShare = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    const shareUrl = item.productUrl || window.location.href;
     if (navigator.share) {
       try {
         await navigator.share({
           title: 'Shop From Reel',
-          text: product.name,
-          url: window.location.href,
+          text: item.name,
+          url: shareUrl,
         });
       } catch (err) {
-        await navigator.clipboard.writeText(window.location.href);
+        await navigator.clipboard.writeText(shareUrl);
       }
     } else {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(shareUrl);
     }
   };
 
@@ -107,7 +98,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ videoUrl, product, index }) => {
       <div className="relative aspect-[9/16] w-full">
         <video
           ref={videoRef}
-          src={videoUrl}
+          src={item.videoUrl}
           className="absolute inset-0 w-full h-full object-cover"
           playsInline
           muted
@@ -138,7 +129,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ videoUrl, product, index }) => {
             <span className="bg-black/40 rounded-full p-1.5 sm:p-2 flex items-center justify-center">
               <Share2 className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
             </span>
-            <span className="text-[9px] sm:text-xs font-medium">{formatCount(counts.shares)}</span>
+            <span className="text-[9px] sm:text-xs font-medium">{formatCount(item.sharesCount)}</span>
           </button>
           <button
             type="button"
@@ -154,11 +145,11 @@ const ReelCard: React.FC<ReelCardProps> = ({ videoUrl, product, index }) => {
             <span className="text-[9px] sm:text-xs font-medium">{formatCount(displaySaves)}</span>
           </button>
         </div>
-        {/* Bottom product overlay — smaller on mobile; thumbnail = video first frame (unplayed) */}
+        {/* Bottom product overlay card (commented out — video + icons only)
         <div className="absolute bottom-0 left-0 right-0 p-1.5 sm:p-2.5">
           <div className="bg-white/95 backdrop-blur rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 flex items-center gap-1.5 sm:gap-3 shadow-lg">
             <video
-              src={videoUrl}
+              src={item.videoUrl}
               className="w-8 h-8 sm:w-12 sm:h-12 rounded-md sm:rounded-lg object-cover shrink-0 bg-gray-200"
               muted
               playsInline
@@ -167,21 +158,22 @@ const ReelCard: React.FC<ReelCardProps> = ({ videoUrl, product, index }) => {
             />
             <div className="min-w-0 flex-1">
               <p className="text-[10px] sm:text-sm font-semibold text-gray-900 truncate">
-                {product.name}
+                {item.name}
               </p>
               <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                 <span className="text-[10px] sm:text-sm font-bold text-gray-900">
-                  {formatMoney(product.price, { currency: product.currency })}
+                  {formatMoney(item.price, { currency: item.currency })}
                 </span>
-                {product.originalPrice > product.price && (
+                {item.originalPrice > item.price && (
                   <span className="text-[9px] sm:text-xs text-gray-500 line-through">
-                    {formatMoney(product.originalPrice, { currency: product.currency })}
+                    {formatMoney(item.originalPrice, { currency: item.currency })}
                   </span>
                 )}
               </div>
             </div>
           </div>
         </div>
+        */}
       </div>
     </div>
   );
@@ -193,34 +185,40 @@ const GAP_PX = 16;
 const ShopFromReel: React.FC = () => {
   const [cardWidth, setCardWidth] = useState(CARD_WIDTH_PX);
 
-  // Priced by the server, so the strip follows the currency switcher like every
-  // other price. The local array is only the offline fallback, and it is INR.
-  const [products, setProducts] = useState<ReelProduct[]>(() =>
-    REEL_PRODUCTS.map((p) => ({ ...p, currency: FALLBACK_CURRENCY }))
-  );
+  // Real reels come from GET /api/reels/public (same backend the mobile app uses).
+  // FALLBACK_REELS keeps the section visible if the request fails.
+  const [reels, setReels] = useState<ReelItem[]>(FALLBACK_REELS);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/reels/showcase`);
+        const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/reels/public?page=1&per_page=6`);
         if (!resp.ok) return;
         const body = await resp.json();
-        const items = body?.data?.items;
+        const items = body?.data;
         if (!cancelled && Array.isArray(items) && items.length) {
-          setProducts(
-            items.map((it: any) => ({
-              name: it.name,
-              price: Number(it.price),
-              originalPrice: Number(it.original_price),
-              // Whatever the server says these are in — never assumed.
-              currency: it.currency || FALLBACK_CURRENCY,
-            }))
-          );
+          const mapped: ReelItem[] = items
+            .filter((it: any) => it?.video_url)
+            .map((it: any, i: number) => {
+              const selling = Number(it.product?.selling_price ?? it.selling_price ?? it.price ?? 0);
+              const cost = Number(it.product?.cost_price ?? 0);
+              return {
+                videoUrl: String(it.video_url),
+                name: String(it.product_name ?? it.product?.product_name ?? it.description ?? ''),
+                price: selling,
+                originalPrice: cost > selling ? cost : selling,
+                currency: FALLBACK_CURRENCY,
+                likesCount: Number(it.likes_count ?? 0),
+                sharesCount: Number(it.shares_count ?? 0),
+                savesCount: seededSaves(i),
+                productUrl: it.product_url ?? null,
+              };
+            });
+          if (mapped.length) setReels(mapped);
         }
       } catch {
-        // Keep the INR fallback. Showing correct rupees beats showing nothing,
-        // and beats showing rupee numbers under a dollar sign.
+        // Keep static fallback.
       }
     })();
     return () => {
@@ -293,13 +291,8 @@ const ShopFromReel: React.FC = () => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {REEL_VIDEOS.map((url, i) => (
-              <ReelCard
-                key={url}
-                videoUrl={url}
-                product={products[i] ?? { ...REEL_PRODUCTS[i], currency: FALLBACK_CURRENCY }}
-                index={i}
-              />
+            {reels.map((r, i) => (
+              <ReelCard key={`${r.videoUrl}-${i}`} item={r} />
             ))}
           </div>
         </div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin, Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
-import { PLATFORM_LOGO_URL } from '../../config';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -55,11 +54,11 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-4 lg:mb-6">
               <img
-                src={PLATFORM_LOGO_URL}
+                src="/assets/footer-logo.png"
                 alt="Aoin Store"
                 width={162}
                 height={48}
-                className="h-10 sm:h-12 w-auto object-contain"
+                className="h-14 sm:h-16 w-auto object-contain"
               />
             </Link>
             <div className="space-y-3 text-[13px] sm:text-[14px] font-light text-[#161616]">
