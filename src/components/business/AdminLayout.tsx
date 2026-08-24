@@ -262,13 +262,13 @@ const AdminLayout: React.FC = () => {
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-gray-100">
       {/* Top Navigation - fixed height */}
-      <header className="bg-black shadow z-10 h-16 flex-shrink-0 w-full">
+      <header className="bg-white border-b border-gray-200 shadow-sm z-10 h-16 flex-shrink-0 w-full">
         <div className="h-full px-4 flex items-center justify-between">
           {/* Left: Menu Button and Logo */}
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleSidebar}
-              className="md:hidden text-primary-500 hover:text-primary-400 focus:outline-none"
+              className="md:hidden text-black hover:text-gray-700 focus:outline-none"
             >
               <Bars3Icon className="h-6 w-6" />
             </button>
@@ -277,7 +277,7 @@ const AdminLayout: React.FC = () => {
               alt="Aoin Store"
               width={135}
               height={40}
-              className="h-10 w-auto rounded-md bg-white px-2 py-1 object-contain"
+              className="h-10 w-auto object-contain"
             />
           </div>
 
@@ -287,7 +287,7 @@ const AdminLayout: React.FC = () => {
             <div className="relative" ref={languageDropdownRef}>
               <button
                 onClick={() => setIsLanguageDropdownOpen((v) => !v)}
-                className="flex items-center gap-2 px-3 py-2 text-sm border border-primary-500 rounded-md bg-transparent text-primary-500 hover:bg-primary-500 hover:text-black transition-colors"
+                className="flex items-center gap-2 px-3 py-2 text-sm border border-gray-300 rounded-md bg-transparent text-black hover:bg-gray-100 transition-colors"
                 aria-label="Language Selector"
               >
                 <span className="text-lg">
@@ -383,13 +383,13 @@ const AdminLayout: React.FC = () => {
                 className="flex items-center space-x-2 text-sm focus:outline-none"
                 onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
               >
-                <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-primary-500 font-medium">
+                <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 font-medium">
                   {user?.name?.charAt(0) || user?.email?.charAt(0) || "M"}
                 </div>
-                <span className="hidden md:block text-primary-500 font-medium">
+                <span className="hidden md:block text-black font-medium">
                   {user?.name || user?.email?.split("@")[0] || "Merchant"}
                 </span>
-                <ChevronDownIcon className="h-4 w-4 text-primary-500" />
+                <ChevronDownIcon className="h-4 w-4 text-black" />
               </button>
 
               {/* Profile Dropdown */}

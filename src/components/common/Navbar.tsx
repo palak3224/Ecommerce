@@ -501,11 +501,13 @@ const Navbar: React.FC = () => {
                     </div>
                   </div>
                 </li>
+                {/* AOIN Live mobile drawer entry (commented out)
                 <li>
                   <Link to="/live-shop" onClick={closeMobileDrawer} className="flex items-center min-h-[44px] px-3 rounded-lg text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-[15px] font-medium mt-2">
                     {t('nav.aoinLive')}
                   </Link>
                 </li>
+                */}
               </ul>
             </nav>
           </div>
@@ -637,15 +639,17 @@ const Navbar: React.FC = () => {
                 <img src="https://res.cloudinary.com/do3vxz4gw/image/upload/v1751687786/public_assets_images/public_assets_images_track-order.svg" alt="" className="w-4 h-4 opacity-70" />
                 {t('nav.trackOrder')}
               </Link>
+              {/* AOIN Live button (commented out)
               <Link to="/live-shop" style={aoinLiveButtonStyle} className="flex items-center gap-1.5 text-white rounded-lg px-3 py-1.5 text-sm font-medium hover:opacity-90 transition-opacity">
                 {t('nav.aoinLive')}
               </Link>
+              */}
             </div>
           </nav>
         </div>
       </div>
 
-      {/* Announcement bar — thin (32–36px), soft background, subtle animation; Play with soft pulse */}
+      {/* Announcement bar — Play & Get 20% OFF promo strip (commented out)
       {showPromoBar && (
         <div className="relative z-10 w-full">
           <div className="h-8 nav:h-9 flex items-center justify-center gap-2 px-4 bg-gradient-to-r from-amber-50/90 via-primary-50/80 to-amber-50/90 border-b border-primary-100/80 text-center animate-slideDown">
@@ -681,6 +685,7 @@ const Navbar: React.FC = () => {
           `}</style>
         </div>
       )}
+      */}
 
       {/* Category dropdown - for desktop */}
       {isCategoryDropdownOpen && !mobileDrawerOpen && (
