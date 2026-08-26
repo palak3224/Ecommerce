@@ -116,6 +116,9 @@ const AddProducts: React.FC<AddProductsProps> = ({ mode = 'new' }) => {
       case 1:
         return (
           <CoreProductInfo
+            // Without this the stock tab is dead in edit/view mode: it would have no
+            // product id, so its Update button never enables.
+            productId={createdProductId}
             // Pass existing core fields from formData
             name={formData.name}
             description={formData.description}

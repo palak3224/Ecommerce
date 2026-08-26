@@ -29,6 +29,9 @@ interface Variant {
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 interface CoreProductInfoProps {
+  /** Set when editing or viewing an existing product. Without it the stock tab has
+      no product to act on, so its Update button stays disabled forever. */
+  productId?: number | null;
   name: string;
   description: string;
   sku: string;
@@ -54,6 +57,7 @@ interface CoreProductInfoProps {
 }
 
 const CoreProductInfo: React.FC<CoreProductInfoProps> = ({
+  productId: initialProductId = null,
   name,
   description,
   sku,
@@ -71,7 +75,7 @@ const CoreProductInfo: React.FC<CoreProductInfoProps> = ({
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [productId, setProductId] = useState<number | null>(null);
+  const [productId, setProductId] = useState<number | null>(initialProductId);
   const [discount, setDiscount] = useState<number>(0);
   const [categoryName, setCategoryName] = useState<string>('');
   const [brandName, setBrandName] = useState<string>('');
@@ -213,6 +217,41 @@ const CoreProductInfo: React.FC<CoreProductInfoProps> = ({
       brandId !== null
     );
   };
+
+  // Keep in step with the parent, which only learns the id after the route resolves.
+  useEffect(() => {
+    if (initialProductId) setProductId(initialProductId);
+  }, [initialProductId]);
+
+  // Load the stock that is actually on the product.
+  //
+  // These inputs used to sit at '0' regardless, so editing an existing product showed
+  // zero stock, and saving the tab wrote that zero over a real balance. Fetching first
+  // means the field shows the truth and an unchanged save is a no-op.
+  useEffect(() => {
+    if (!productId) return;
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/api/merchant-dashboard/products/${productId}/stock`,
+          { headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` } }
+        );
+        if (!response.ok) return;
+        const data = await response.json();
+        if (cancelled || !data?.stock) return;
+        setStockQty(String(data.stock.stock_qty ?? 0));
+        setLowStockThreshold(String(data.stock.low_stock_threshold ?? 0));
+      } catch {
+        // Leave the inputs at their defaults; the merchant can still set a value.
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [productId]);
 
   // Check if stock form is valid
   const isStockFormValid = () => {
@@ -1158,12 +1197,28 @@ const CoreProductInfo: React.FC<CoreProductInfoProps> = ({
                 </div>
               )}
 
+              {!productId && (
+                <p className="mt-4 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">
+                  Save the product details first — stock is attached to a saved product.
+                </p>
+              )}
+
               <div className="mt-6 flex justify-end">
                 <button
+                  type="button"
                   onClick={handleUpdateStock}
                   disabled={isUpdatingStock || (hasSize ? !validateSizeQuantities().valid : !isStockFormValid())}
                   className="px-4 py-2 text-sm font-medium text-white bg-primary-600 border border-transparent rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                  title={hasSize ? (!validateSizeQuantities().valid ? validateSizeQuantities().error : '') : (!isStockFormValid() ? 'Please enter valid stock values' : '')}
+                  title={
+                    hasSize
+                      ? (!validateSizeQuantities().valid ? validateSizeQuantities().error : '')
+                      : !productId
+                        // The commonest reason the button is dead, and the one the old
+                        // "enter valid stock values" text actively misdirected from:
+                        // there is no product to attach stock to yet.
+                        ? 'Save the product details first, then set its stock.'
+                        : (!isStockFormValid() ? 'Please enter valid stock values' : '')
+                  }
                 >
                   {isUpdatingStock ? (hasSize ? 'Creating Variants...' : 'Updating Stock...') : (hasSize ? 'Create Size Variants' : 'Update Stock')}
                 </button>
