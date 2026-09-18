@@ -38,12 +38,16 @@ const Categories: React.FC = () => {
 
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
+  // Scroll by one card at a time. Container width / 4 ≈ one card + share of gap,
+  // which lines up with the snap points.
+  const oneCardDelta = () => (scrollRef.current?.clientWidth ?? 0) / 4;
+
   const scrollLeft = () => {
-    scrollRef.current?.scrollBy({ left: -220, behavior: 'smooth' });
+    scrollRef.current?.scrollBy({ left: -oneCardDelta(), behavior: 'smooth' });
   };
 
   const scrollRight = () => {
-    scrollRef.current?.scrollBy({ left: 220, behavior: 'smooth' });
+    scrollRef.current?.scrollBy({ left: oneCardDelta(), behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -218,24 +222,25 @@ const Categories: React.FC = () => {
             </div>
           </div>
 
+          {/* Exactly 4 cards visible; overflow scrolls horizontally with snap. */}
           <div
             ref={scrollRef}
-            className="flex gap-10 overflow-x-auto pb-6 pt-2 pl-2 scroll-smooth scrollbar-hide"
+            className="flex gap-6 overflow-x-auto pb-6 pt-2 scroll-smooth scrollbar-hide snap-x snap-mandatory"
           >
           {categories.map((category) => (
             <button
               key={category.category_id}
               type="button"
               onClick={() => navigate(`/all-products?category=${category.category_id}`)}
-              className="group flex-shrink-0 flex flex-col items-center gap-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-xl"
+              className="group flex-none basis-[calc((100%-72px)/4)] snap-start flex flex-col items-center gap-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-2xl"
             >
-              {/* Square image container - fixed size; image zooms inside, light orange shadow on hover */}
+              {/* Square image container - scales with card width; image zooms inside on hover */}
               <div
                 className={`
-                  w-24 h-24 sm:w-28 sm:h-28 rounded-lg overflow-hidden
+                  w-full aspect-square rounded-2xl overflow-hidden
                   bg-gray-50
                   transition-shadow duration-300 ease-out
-                  group-hover:shadow-[0_8px_24px_-4px_rgba(24, 0, 172,0.2)]
+                  group-hover:shadow-[0_12px_28px_-6px_rgba(24, 0, 172,0.25)]
                   flex items-center justify-center
                 `}
               >
@@ -247,7 +252,7 @@ const Categories: React.FC = () => {
                   />
                 ) : (
                   <span
-                    className={`w-full h-full rounded-lg ${getFallbackColorClass(category.category_id)} flex items-center justify-center text-2xl sm:text-3xl select-none transition-transform duration-300 ease-out group-hover:scale-110`}
+                    className={`w-full h-full rounded-2xl ${getFallbackColorClass(category.category_id)} flex items-center justify-center text-3xl sm:text-4xl select-none transition-transform duration-300 ease-out group-hover:scale-110`}
                     aria-hidden
                   >
                     📦
@@ -255,7 +260,7 @@ const Categories: React.FC = () => {
                 )}
               </div>
               {/* Category name below */}
-              <span className="font-medium text-sm sm:text-base font-worksans text-gray-800 group-hover:text-primary-600 transition-colors duration-200 max-w-[7rem] text-center leading-tight line-clamp-2">
+              <span className="font-medium text-base sm:text-lg font-worksans text-gray-800 group-hover:text-primary-600 transition-colors duration-200 w-full text-center leading-tight line-clamp-2">
                 {getCategoryName(category)}
               </span>
             </button>
