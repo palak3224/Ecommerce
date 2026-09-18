@@ -192,9 +192,9 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onWin, onBack }) => {
         100% { transform: rotateY(180deg) scale(1); }
       }
       @keyframes cardPulse {
-        0% { box-shadow: 0 0 0 0 rgba(24, 0, 172,0.5); }
-        70% { box-shadow: 0 0 16px 8px rgba(24, 0, 172,0.15); }
-        100% { box-shadow: 0 0 0 0 rgba(24, 0, 172,0); }
+        0% { box-shadow: 0 0 0 0 rgba(1, 31, 220,0.5); }
+        70% { box-shadow: 0 0 16px 8px rgba(1, 31, 220,0.15); }
+        100% { box-shadow: 0 0 0 0 rgba(1, 31, 220,0); }
       }
       @keyframes fadeInBoard {
         0% { opacity: 0; transform: translateY(40px); }
@@ -223,7 +223,7 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onWin, onBack }) => {
     <div className="min-h-screen flex items-center justify-center font-['Work_Sans'] bg-gradient-to-br from-primary-50 via-white to-primary-100 relative overflow-hidden py-4 sm:py-12 px-2 sm:px-4">
       {/* Floating confetti background (SVGs) */}
       <svg className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10 z-0" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="10%" cy="20%" r="30" fill="#1800AC" />
+        <circle cx="10%" cy="20%" r="30" fill="#011fdc" />
         <circle cx="80%" cy="10%" r="20" fill="#7561EF" />
         <circle cx="50%" cy="80%" r="25" fill="#3B1EEB" />
         <circle cx="90%" cy="60%" r="15" fill="#14008F" />
@@ -232,11 +232,11 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onWin, onBack }) => {
       {showConfetti && (
         <svg className="absolute left-1/2 top-1/2 z-50" style={{ transform: 'translate(-50%, -60%)', animation: 'confettiBurst 1.2s both' }} width="220" height="120">
           <g>
-            <circle cx="30" cy="60" r="8" fill="#1800AC" />
+            <circle cx="30" cy="60" r="8" fill="#011fdc" />
             <circle cx="60" cy="30" r="6" fill="#7561EF" />
             <circle cx="110" cy="20" r="10" fill="#3B1EEB" />
             <circle cx="170" cy="40" r="7" fill="#14008F" />
-            <circle cx="200" cy="80" r="8" fill="#1800AC" />
+            <circle cx="200" cy="80" r="8" fill="#011fdc" />
             <circle cx="120" cy="100" r="6" fill="#7561EF" />
             <circle cx="80" cy="90" r="7" fill="#3B1EEB" />
           </g>

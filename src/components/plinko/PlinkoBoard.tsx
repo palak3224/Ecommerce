@@ -180,7 +180,7 @@ const PlinkoBoard: React.FC<PlinkoBoardProps> = ({ slotLabels, targetSlot, onLan
         );
         gradient.addColorStop(0, '#FFFFFF');
         gradient.addColorStop(0.35, '#7561EF');
-        gradient.addColorStop(1, '#1800AC');
+        gradient.addColorStop(1, '#011fdc');
         ctx.beginPath();
         ctx.arc(current.x, current.y, BOARD.ballRadius, 0, Math.PI * 2);
         ctx.fillStyle = gradient;

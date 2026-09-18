@@ -271,7 +271,7 @@ const Shop = () => {
       {/* Innovation Window Section with Enhanced Professional Design */}
       <div className="relative py-6 px-4 sm:py-8 md:py-12 lg:py-12 sm:px-6 lg:px-8 overflow-hidden" 
            style={{ 
-             background: 'linear-gradient(135deg, #1800AC 0%, #3B1EEB 25%, #1800AC 50%, #3B1EEB 75%, #1800AC 100%)',
+             background: 'linear-gradient(135deg, #011fdc 0%, #3B1EEB 25%, #011fdc 50%, #3B1EEB 75%, #011fdc 100%)',
              backgroundSize: '400% 400%'
            }}>
         
@@ -361,7 +361,7 @@ const Shop = () => {
                background: `
                  radial-gradient(circle at 20% 80%, rgba(251,191,36,0.1) 0%, transparent 50%),
                  radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                 linear-gradient(135deg, rgba(24, 0, 172,0.95) 0%, rgba(255,107,53,0.95) 100%)
+                 linear-gradient(135deg, rgba(1, 31, 220,0.95) 0%, rgba(255,107,53,0.95) 100%)
                `
              }}>
           

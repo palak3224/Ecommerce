@@ -167,7 +167,7 @@ const CreatorReels: React.FC = () => {
     <div className="space-y-5 text-gray-900">
       {/* IG-style header */}
       <section className="relative overflow-hidden rounded-3xl border border-gray-100/80 bg-white shadow-sm">
-        <div className="relative h-[150px] bg-[radial-gradient(circle_at_12%_0%,rgba(24, 0, 172,0.55),transparent_55%),radial-gradient(circle_at_70%_25%,rgba(17,24,39,0.28),transparent_55%),linear-gradient(135deg,#12131f,#14192e)]">
+        <div className="relative h-[150px] bg-[radial-gradient(circle_at_12%_0%,rgba(1, 31, 220,0.55),transparent_55%),radial-gradient(circle_at_70%_25%,rgba(17,24,39,0.28),transparent_55%),linear-gradient(135deg,#12131f,#14192e)]">
           <div className="absolute inset-0 opacity-20 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.10),transparent)]" />
         </div>
 

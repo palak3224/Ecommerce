@@ -79,7 +79,7 @@ const RazorpayPayment: React.FC<RazorpayPaymentProps> = ({
           business_name: businessName,
         },
         theme: {
-          color: '#1800AC', // Orange color matching your theme
+          color: '#011fdc', // Orange color matching your theme
         },
         handler: function (response: any) {
           // console.log('Razorpay payment success:', response);

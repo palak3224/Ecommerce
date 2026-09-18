@@ -172,7 +172,7 @@ const Categories: React.FC = () => {
                 onClick={() => navigate(`/all-products?category=${category.category_id}`)}
                 className="group flex-shrink-0 flex flex-col items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 rounded-lg"
               >
-                <div className="w-14 h-14 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center transition-shadow duration-200 group-hover:shadow-[0_4px_12px_-2px_rgba(24, 0, 172,0.2)]">
+                <div className="w-14 h-14 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center transition-shadow duration-200 group-hover:shadow-[0_4px_12px_-2px_rgba(1, 31, 220,0.2)]">
                   {category.icon_url ? (
                     <img
                       src={category.icon_url}
@@ -240,7 +240,7 @@ const Categories: React.FC = () => {
                   w-full aspect-square rounded-2xl overflow-hidden
                   bg-gray-50
                   transition-shadow duration-300 ease-out
-                  group-hover:shadow-[0_12px_28px_-6px_rgba(24, 0, 172,0.25)]
+                  group-hover:shadow-[0_12px_28px_-6px_rgba(1, 31, 220,0.25)]
                   flex items-center justify-center
                 `}
               >

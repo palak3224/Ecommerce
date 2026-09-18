@@ -208,8 +208,8 @@ const ProductsReport = () => {
                 <Line
                   type="monotone"
                   dataKey="quantity"
-                  stroke="#1800AC"
-                  fill="#1800AC"
+                  stroke="#011fdc"
+                  fill="#011fdc"
                   name="Quantity Sold"
                 />
                 <Line

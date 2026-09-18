@@ -9,14 +9,14 @@ import toast from 'react-hot-toast';
 import { useAuth } from '../../../context/AuthContext';
 
 const CHART_COLORS = {
-  primary: '#1800AC',
+  primary: '#011fdc',
   secondary: '#2DD4BF',
   tertiary: '#A855F7',
   quaternary: '#3B82F6',
   fifth: '#FFD600',
   sixth: '#00E676',
   seventh: '#651FFF',
-  eighth: '#1800AC',
+  eighth: '#011fdc',
 };
 const PIE_COLORS = [
   '#34D399', // green
@@ -24,7 +24,7 @@ const PIE_COLORS = [
   '#FFD600', // yellow
   '#7C3AED', // purple
   '#00E676', // bright green
-  '#1800AC', // orange
+  '#011fdc', // orange
   '#A855F7', // violet
   '#3B82F6', // blue
 ];

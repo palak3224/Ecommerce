@@ -248,11 +248,11 @@ const Navbar: React.FC = () => {
       <style>
         {`
           @keyframes colorChange {
-            0% { background-color: #1800AC; }
+            0% { background-color: #011fdc; }
             25% { background-color: #63BC86; }
             50% { background-color: #DB4173; }
             75% { background-color: #8B4CCE; }
-            100% { background-color: #1800AC; }
+            100% { background-color: #011fdc; }
           }
           @keyframes pulse {
             0%, 100% { opacity: 1; }
@@ -678,8 +678,8 @@ const Navbar: React.FC = () => {
             }
             .animate-slideDown { animation: slideDown 0.5s cubic-bezier(.4,0,.2,1) both; }
             @keyframes softPulse {
-              0%, 100% { box-shadow: 0 0 0 0 rgba(24, 0, 172, 0.35); }
-              50% { box-shadow: 0 0 0 6px rgba(24, 0, 172, 0); }
+              0%, 100% { box-shadow: 0 0 0 0 rgba(1, 31, 220, 0.35); }
+              50% { box-shadow: 0 0 0 6px rgba(1, 31, 220, 0); }
             }
             .announcement-play-btn { animation: softPulse 2s ease-in-out infinite; }
           `}</style>

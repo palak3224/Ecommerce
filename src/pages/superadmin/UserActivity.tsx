@@ -52,13 +52,13 @@ const fallbackUserSegments = [
 ];
 
 const fallbackUserDistribution = [
-  { type: "Verified Users", count: 120, color: "#1800AC" },
+  { type: "Verified Users", count: 120, color: "#011fdc" },
   { type: "Unverified Users", count: 30, color: "#3B1EEB" },
   { type: "Premium Users", count: 45, color: "#14008F" },
   { type: "Basic Users", count: 105, color: "#F2F0FF" },
 ];
 
-const COLORS = ['#1800AC', '#3B1EEB', '#1800AC', '#3B1EEB'];
+const COLORS = ['#011fdc', '#3B1EEB', '#011fdc', '#3B1EEB'];
 
 const UserActivity = () => {
   const [userMetrics, setUserMetrics] = useState(fallbackUserMetrics);
@@ -228,10 +228,10 @@ const UserActivity = () => {
                         <Line
                           type="monotone"
                           dataKey="activeUsers"
-                          stroke="#1800AC"
+                          stroke="#011fdc"
                           strokeWidth={3}
-                          dot={{ stroke: '#1800AC', strokeWidth: 2, r: 4, fill: 'white' }}
-                          activeDot={{ r: 6, stroke: '#1800AC', strokeWidth: 2, fill: '#1800AC' }}
+                          dot={{ stroke: '#011fdc', strokeWidth: 2, r: 4, fill: 'white' }}
+                          activeDot={{ r: 6, stroke: '#011fdc', strokeWidth: 2, fill: '#011fdc' }}
                           name="Active Users"
                         />
                         <Line
@@ -266,7 +266,7 @@ const UserActivity = () => {
                         />
                         <Bar
                           dataKey="count"
-                          fill="#1800AC"
+                          fill="#011fdc"
                           radius={[4, 4, 0, 0]}
                         />
                       </BarChart>

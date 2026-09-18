@@ -702,7 +702,7 @@ const App: React.FC = () => {
               toastOptions={{
                 style: {
                   background: "#E5E1FE",        // Tailwind orange-100 (soft warm background)
-                  color: "#1800AC",             // Tailwind orange-600 (professional tone)
+                  color: "#011fdc",             // Tailwind orange-600 (professional tone)
                   padding: "12px 20px",
                   borderRadius: "0.5rem",       // rounded-lg for softer edges
                   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // soft neutral shadow

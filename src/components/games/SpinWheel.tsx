@@ -40,8 +40,8 @@ const SpinWheel: React.FC<SpinWheelProps> = ({ onWin, onBack }) => {
 
   // For animation only
   const colors = [
-    '#1800AC', '#7561EF', '#3B1EEB', '#14008F',
-    '#A497F7', '#7561EF', '#3B1EEB', '#1800AC'
+    '#011fdc', '#7561EF', '#3B1EEB', '#14008F',
+    '#A497F7', '#7561EF', '#3B1EEB', '#011fdc'
   ];
 
   useEffect(() => {
@@ -144,7 +144,7 @@ const SpinWheel: React.FC<SpinWheelProps> = ({ onWin, onBack }) => {
     <div className="min-h-screen flex items-center justify-center font-['Work_Sans'] bg-gradient-to-br from-primary-50 via-white to-primary-100 relative overflow-hidden py-12">
       {/* Floating confetti background (optional, simple SVGs for now) */}
       <svg className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10 z-0" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="10%" cy="20%" r="30" fill="#1800AC" />
+        <circle cx="10%" cy="20%" r="30" fill="#011fdc" />
         <circle cx="80%" cy="10%" r="20" fill="#7561EF" />
         <circle cx="50%" cy="80%" r="25" fill="#3B1EEB" />
         <circle cx="90%" cy="60%" r="15" fill="#14008F" />

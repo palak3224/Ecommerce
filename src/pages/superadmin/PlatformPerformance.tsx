@@ -145,7 +145,7 @@ export default function PlatformPerformance() {
   const { accessToken, isAuthenticated } = useAuth();
   
   // Primary color theme
-  const primaryColor = '#1800AC';
+  const primaryColor = '#011fdc';
   const primaryLightColor = '#3B1EEB';
   const primaryDarkerColor = '#14008F';
   const primaryLightestBg = '#F2F0FF';
@@ -486,7 +486,7 @@ export default function PlatformPerformance() {
   const getBarColor = (entry: ErrorData): string => {
     const colors: Record<string, string> = {
       '4xx Errors': '#3B1EEB',
-      '5xx Errors': '#1800AC',
+      '5xx Errors': '#011fdc',
       'Timeout Errors': '#FEC84B',
       'Network Errors': '#FEDF89',
     };
@@ -553,7 +553,7 @@ export default function PlatformPerformance() {
 
   // Update chart colors
   const CHART_COLORS = {
-    primary: '#1800AC',
+    primary: '#011fdc',
     secondary: '#2DD4BF',
     tertiary: '#A855F7',
     quaternary: '#3B82F6',
@@ -696,7 +696,7 @@ export default function PlatformPerformance() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button 
                       className="text-sm font-medium hover:underline"
-                      style={{ color: '#1800AC' }}
+                      style={{ color: '#011fdc' }}
                       onClick={(e) => {
                         e.stopPropagation();
                         fetchServiceDetails(service.name);
@@ -910,20 +910,20 @@ export default function PlatformPerformance() {
 
         <div className={`p-4 rounded-lg shadow-sm border bg-${primaryLightestBg} flex items-center justify-between`} style={{ backgroundColor: primaryLightestBg }}>
           <div className="flex items-center gap-3">
-            <Activity className="w-5 h-5" style={{ color: '#1800AC' }} />
+            <Activity className="w-5 h-5" style={{ color: '#011fdc' }} />
             <div>
               <h3 className="font-medium text-gray-700">Uptime</h3>
-              <p className="font-bold" style={{ color: '#1800AC' }}>{uptimePercentage}% last 30 days</p>
+              <p className="font-bold" style={{ color: '#011fdc' }}>{uptimePercentage}% last 30 days</p>
             </div>
           </div>
         </div>
 
         <div className={`p-4 rounded-lg shadow-sm border bg-${primaryLightestBg} flex items-center justify-between`} style={{ backgroundColor: primaryLightestBg }}>
           <div className="flex items-center gap-3">
-            <Clock className="w-5 h-5" style={{ color: '#1800AC' }} />
+            <Clock className="w-5 h-5" style={{ color: '#011fdc' }} />
             <div>
               <h3 className="font-medium text-gray-700">Avg Response Time</h3>
-              <p className="font-bold" style={{ color: '#1800AC' }}>
+              <p className="font-bold" style={{ color: '#011fdc' }}>
                 {responseTimeData.length > 0 
                   ? `${Math.round(responseTimeData.reduce((sum, item) => sum + (item.responseTime || 0), 0) / responseTimeData.length)}ms` 
                   : 'Calculating...'}
@@ -942,7 +942,7 @@ export default function PlatformPerformance() {
               ? 'text-white' 
               : 'text-gray-600 hover:bg-gray-100'
           }`}
-          style={{ backgroundColor: selectedTimeframe === '24h' ? '#1800AC' : '' }}
+          style={{ backgroundColor: selectedTimeframe === '24h' ? '#011fdc' : '' }}
         >
           24 Hours
         </button>
@@ -953,7 +953,7 @@ export default function PlatformPerformance() {
               ? 'text-white' 
               : 'text-gray-600 hover:bg-gray-100'
           }`}
-          style={{ backgroundColor: selectedTimeframe === '7d' ? '#1800AC' : '' }}
+          style={{ backgroundColor: selectedTimeframe === '7d' ? '#011fdc' : '' }}
         >
           7 Days
         </button>
@@ -964,7 +964,7 @@ export default function PlatformPerformance() {
               ? 'text-white' 
               : 'text-gray-600 hover:bg-gray-100'
           }`}
-          style={{ backgroundColor: selectedTimeframe === '30d' ? '#1800AC' : '' }}
+          style={{ backgroundColor: selectedTimeframe === '30d' ? '#011fdc' : '' }}
         >
           30 Days
         </button>
@@ -980,7 +980,7 @@ export default function PlatformPerformance() {
           <h2 className="text-lg font-medium mb-4 text-black">Response Time Trend</h2>
           {loadingData ? (
             <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: '#1800AC' }}></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: '#011fdc' }}></div>
             </div>
           ) : (
             <ResponsiveContainer width="100%" height={300}>
@@ -1015,7 +1015,7 @@ export default function PlatformPerformance() {
           <h2 className="text-lg font-medium mb-4 text-black">Error Distribution</h2>
           {loadingData ? (
             <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: '#1800AC' }}></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: '#011fdc' }}></div>
             </div>
           ) : (
             <ResponsiveContainer width="100%" height={300}>

@@ -102,7 +102,7 @@ const Games: React.FC = () => {
     style.innerHTML = `
       @keyframes floatCard {
         0% { transform: translateY(0px); }
-        50% { transform: translateY(-12px) scale(1.03); box-shadow: 0 8px 32px 0 rgba(24, 0, 172,0.10); }
+        50% { transform: translateY(-12px) scale(1.03); box-shadow: 0 8px 32px 0 rgba(1, 31, 220,0.10); }
         100% { transform: translateY(0px); }
       }
       @keyframes fadeInUp {
@@ -132,11 +132,11 @@ const Games: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-white py-12 font-['Work_Sans'] relative overflow-hidden">
       {/* Animated Confetti Background */}
       <svg className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20 z-0" style={{ animation: 'confettiMove 3s infinite alternate' }} xmlns="http://www.w3.org/2000/svg">
-        <circle cx="10%" cy="20%" r="30" fill="#1800AC" />
+        <circle cx="10%" cy="20%" r="30" fill="#011fdc" />
         <circle cx="80%" cy="10%" r="20" fill="#7561EF" />
         <circle cx="50%" cy="80%" r="25" fill="#3B1EEB" />
         <circle cx="90%" cy="60%" r="15" fill="#14008F" />
-        <rect x="20%" y="70%" width="18" height="18" fill="#1800AC" rx="4" />
+        <rect x="20%" y="70%" width="18" height="18" fill="#011fdc" rx="4" />
         <rect x="70%" y="30%" width="12" height="12" fill="#7561EF" rx="3" />
       </svg>
       <div className="container mx-auto mt-12 px-4 max-w-4xl relative z-10">

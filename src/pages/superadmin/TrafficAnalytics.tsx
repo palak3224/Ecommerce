@@ -106,7 +106,7 @@ interface AnalyticsResponse {
 }
 
 const CHART_COLORS = {
-  primary: '#1800AC',
+  primary: '#011fdc',
   secondary: '#2DD4BF',
   tertiary: '#A855F7',
   quaternary: '#3B82F6',

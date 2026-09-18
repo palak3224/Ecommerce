@@ -165,7 +165,7 @@ const HoliGiveawayPage: React.FC = () => {
         }}
       >
         {/* Decorative colour blobs */}
-        <div className="absolute -top-16 -left-16 w-72 h-72 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #1800AC, #ec4899)' }} />
+        <div className="absolute -top-16 -left-16 w-72 h-72 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #011fdc, #ec4899)' }} />
         <div className="absolute -bottom-16 -right-16 w-72 h-72 rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #a855f7, #3b82f6)' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #22c55e, #F79009)' }} />
 
@@ -175,7 +175,7 @@ const HoliGiveawayPage: React.FC = () => {
             <p className="text-sm font-bold uppercase tracking-widest text-pink-500 mb-2">Holi Special Giveaway</p>
             <h2
               className="text-4xl md:text-5xl font-extrabold leading-tight"
-              style={{ fontFamily: "'Baloo 2', cursive", background: 'linear-gradient(90deg, #1800AC, #ec4899, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+              style={{ fontFamily: "'Baloo 2', cursive", background: 'linear-gradient(90deg, #011fdc, #ec4899, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
             >
               Join & Win This Holi!
             </h2>
@@ -223,7 +223,7 @@ const HoliGiveawayPage: React.FC = () => {
               }}
             >
               {/* Top coloured bar */}
-              <div className="h-2 w-full" style={{ background: 'linear-gradient(90deg, #1800AC, #ec4899, #a855f7, #3b82f6, #22c55e)' }} />
+              <div className="h-2 w-full" style={{ background: 'linear-gradient(90deg, #011fdc, #ec4899, #a855f7, #3b82f6, #22c55e)' }} />
 
               <div className="p-8 md:p-10">
                 {!submitted ? (
@@ -303,7 +303,7 @@ const HoliGiveawayPage: React.FC = () => {
                         style={{
                           background: loading
                             ? '#c084fc'
-                            : 'linear-gradient(90deg, #1800AC, #ec4899, #a855f7)',
+                            : 'linear-gradient(90deg, #011fdc, #ec4899, #a855f7)',
                           boxShadow: '0 4px 20px rgba(236,72,153,0.35)',
                         }}
                       >
@@ -385,7 +385,7 @@ const HoliGiveawayPage: React.FC = () => {
               <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr style={{ background: 'linear-gradient(90deg, #1800AC, #ec4899, #a855f7)' }}>
+                    <tr style={{ background: 'linear-gradient(90deg, #011fdc, #ec4899, #a855f7)' }}>
                       <th className="text-left text-white font-bold px-5 py-3">#</th>
                       <th className="text-left text-white font-bold px-5 py-3">Name</th>
                       <th className="text-left text-white font-bold px-5 py-3">Phone</th>

@@ -109,7 +109,7 @@ const CreatorPortfolio: React.FC = () => {
 
       {/* Media kit top */}
       <section className="rounded-3xl border border-gray-100/80 bg-white shadow-sm overflow-hidden">
-        <div className="px-6 py-6 bg-[radial-gradient(circle_at_15%_10%,rgba(24, 0, 172,0.14),transparent_55%),radial-gradient(circle_at_85%_25%,rgba(17,24,39,0.12),transparent_55%),linear-gradient(135deg,#ffffff,#F2F0FF)]">
+        <div className="px-6 py-6 bg-[radial-gradient(circle_at_15%_10%,rgba(1, 31, 220,0.14),transparent_55%),radial-gradient(circle_at_85%_25%,rgba(17,24,39,0.12),transparent_55%),linear-gradient(135deg,#ffffff,#F2F0FF)]">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <div className="min-w-0">
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">

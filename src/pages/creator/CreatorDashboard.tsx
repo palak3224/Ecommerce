@@ -539,8 +539,8 @@ const CreatorDashboard: React.FC = () => {
               <AreaChart data={EARNINGS_TREND} margin={{ top: 4, right: 4, left: -28, bottom: 0 }}>
                 <defs>
                   <linearGradient id="eg" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%"   stopColor="#1800AC" stopOpacity={0.25} />
-                    <stop offset="100%" stopColor="#1800AC" stopOpacity={0} />
+                    <stop offset="0%"   stopColor="#011fdc" stopOpacity={0.25} />
+                    <stop offset="100%" stopColor="#011fdc" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="d" tick={{ fontSize: 9, fill: '#9ca3af' }} stroke="transparent" />
@@ -551,9 +551,9 @@ const CreatorDashboard: React.FC = () => {
                 />
                 <Area
                   type="monotone" dataKey="v"
-                  stroke="#1800AC" strokeWidth={2}
+                  stroke="#011fdc" strokeWidth={2}
                   fill="url(#eg)" dot={false}
-                  activeDot={{ r: 4, fill: '#1800AC', strokeWidth: 0 }}
+                  activeDot={{ r: 4, fill: '#011fdc', strokeWidth: 0 }}
                 />
               </AreaChart>
             </ResponsiveContainer>

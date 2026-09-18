@@ -132,8 +132,8 @@
   textarea:focus,
   select:focus {
     outline: none !important;
-    border-color: #1800AC !important;
-    box-shadow: 0 0 0 3px rgba(24, 0, 172, 0.15) !important;
+    border-color: #011fdc !important;
+    box-shadow: 0 0 0 3px rgba(1, 31, 220, 0.15) !important;
     transform: translateY(-1px) !important;
   }
 

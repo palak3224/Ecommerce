@@ -319,7 +319,7 @@ const Sales = () => {
   const averageOrderValue = merchantPerformance?.average_order_value.value || 0;
 
   // Define a color palette for up to 3 categories
-  const pieColors = ['#1800AC', '#00E5BE', '#8B5CF6'];
+  const pieColors = ['#011fdc', '#00E5BE', '#8B5CF6'];
 
   // Map categoryData to ensure value is a number and assign a color
   const pieChartData = categoryData.map((cat, idx) => ({
@@ -442,9 +442,9 @@ const Sales = () => {
           yAxisId="left"
           type="monotone"
           dataKey="revenue"
-          stroke="#1800AC"
+          stroke="#011fdc"
           name="Revenue"
-          dot={{ fill: '#1800AC' }}
+          dot={{ fill: '#011fdc' }}
         />
         <Line
           yAxisId="right"
@@ -515,7 +515,7 @@ const Sales = () => {
         />
         <YAxis />
         <Tooltip content={<ProductPerformanceTooltip />} />
-        <Bar dataKey="revenue" fill="#1800AC" />
+        <Bar dataKey="revenue" fill="#011fdc" />
       </BarChart>
     </ResponsiveContainer>
           </div>

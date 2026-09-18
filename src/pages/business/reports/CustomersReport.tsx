@@ -74,8 +74,8 @@ const CustomersReport = () => {
               <Line 
                 type="monotone" 
                 dataKey="customers" 
-                stroke="#1800AC" 
-                fill="#1800AC"
+                stroke="#011fdc" 
+                fill="#011fdc"
                 name="Total Customers"
               />
             </LineChart>
@@ -94,7 +94,7 @@ const CustomersReport = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="current" name="Current Period" fill="#1800AC" />
+              <Bar dataKey="current" name="Current Period" fill="#011fdc" />
               <Bar dataKey="previous" name="Previous Period" fill="#E5E1FE" />
             </BarChart>
           </ResponsiveContainer>

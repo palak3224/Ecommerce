@@ -16,8 +16,8 @@ export default {
     extend: {
       colors: {
         /**
-         * Brand palette — anchored on #1800AC (deep indigo, hsl(248.4 100% 33.7%)).
-         * `primary-600` IS the brand color; white text on it scores 12.85:1 (WCAG AAA).
+         * Brand palette — anchored on #011fdc (electric indigo, rgb(1 31 220)).
+         * `primary-600` IS the brand color.
          * Change the brand here and the whole app follows — do not hardcode hex in components.
          */
         primary: {
@@ -27,7 +27,7 @@ export default {
           300: '#A497F7',
           400: '#7561EF',
           500: '#3B1EEB',
-          600: '#1800AC', // brand
+          600: '#011fdc', // brand
           700: '#14008F',
           800: '#120273',
           900: '#100557',
