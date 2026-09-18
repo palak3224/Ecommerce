@@ -135,7 +135,7 @@ const Games: React.FC = () => {
         <circle cx="10%" cy="20%" r="30" fill="#011fdc" />
         <circle cx="80%" cy="10%" r="20" fill="#7561EF" />
         <circle cx="50%" cy="80%" r="25" fill="#3B1EEB" />
-        <circle cx="90%" cy="60%" r="15" fill="#14008F" />
+        <circle cx="90%" cy="60%" r="15" fill="#011fdc" />
         <rect x="20%" y="70%" width="18" height="18" fill="#011fdc" rx="4" />
         <rect x="70%" y="30%" width="12" height="12" fill="#7561EF" rx="3" />
       </svg>

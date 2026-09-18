@@ -141,9 +141,9 @@ const NewsletterSubscribers: React.FC = () => {
               <title>Newsletter Subscribers</title>
               <style>
                 body  { font-family: sans-serif; padding: 2rem; color: #1a1a1a; }
-                h1    { font-size: 1.25rem; margin-bottom: 1rem; color: #120273; }
+                h1    { font-size: 1.25rem; margin-bottom: 1rem; color: #011fdc; }
                 table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
-                th    { background: #F2F0FF; color: #120273; text-align: left;
+                th    { background: #F2F0FF; color: #011fdc; text-align: left;
                         padding: 8px 12px; border-bottom: 2px solid #C8C0FC; }
                 td    { padding: 8px 12px; border-bottom: 1px solid #f3f4f6; }
                 tr:nth-child(even) td { background: #F2F0FF; }

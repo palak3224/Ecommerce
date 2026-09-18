@@ -226,7 +226,7 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onWin, onBack }) => {
         <circle cx="10%" cy="20%" r="30" fill="#011fdc" />
         <circle cx="80%" cy="10%" r="20" fill="#7561EF" />
         <circle cx="50%" cy="80%" r="25" fill="#3B1EEB" />
-        <circle cx="90%" cy="60%" r="15" fill="#14008F" />
+        <circle cx="90%" cy="60%" r="15" fill="#011fdc" />
       </svg>
       {/* Confetti Burst on Win */}
       {showConfetti && (
@@ -235,7 +235,7 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onWin, onBack }) => {
             <circle cx="30" cy="60" r="8" fill="#011fdc" />
             <circle cx="60" cy="30" r="6" fill="#7561EF" />
             <circle cx="110" cy="20" r="10" fill="#3B1EEB" />
-            <circle cx="170" cy="40" r="7" fill="#14008F" />
+            <circle cx="170" cy="40" r="7" fill="#011fdc" />
             <circle cx="200" cy="80" r="8" fill="#011fdc" />
             <circle cx="120" cy="100" r="6" fill="#7561EF" />
             <circle cx="80" cy="90" r="7" fill="#3B1EEB" />

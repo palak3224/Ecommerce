@@ -147,7 +147,7 @@ export default function PlatformPerformance() {
   // Primary color theme
   const primaryColor = '#011fdc';
   const primaryLightColor = '#3B1EEB';
-  const primaryDarkerColor = '#14008F';
+  const primaryDarkerColor = '#011fdc';
   const primaryLightestBg = '#F2F0FF';
 
   // State for various performance metrics

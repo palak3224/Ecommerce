@@ -28,10 +28,10 @@ export default {
           400: '#7561EF',
           500: '#3B1EEB',
           600: '#011fdc', // brand
-          700: '#14008F',
-          800: '#120273',
-          900: '#100557',
-          950: '#0B0434',
+          700: '#0119b3', // darker brand — hover
+          800: '#01148a', // darker still — active
+          900: '#010f61', // deepest brand
+          950: '#000833',
         },
         // Cyan — analogous support colour for informational states.
         secondary: {

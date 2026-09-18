@@ -54,7 +54,7 @@ const fallbackUserSegments = [
 const fallbackUserDistribution = [
   { type: "Verified Users", count: 120, color: "#011fdc" },
   { type: "Unverified Users", count: 30, color: "#3B1EEB" },
-  { type: "Premium Users", count: 45, color: "#14008F" },
+  { type: "Premium Users", count: 45, color: "#011fdc" },
   { type: "Basic Users", count: 105, color: "#F2F0FF" },
 ];
 

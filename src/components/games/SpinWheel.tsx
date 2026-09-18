@@ -40,7 +40,7 @@ const SpinWheel: React.FC<SpinWheelProps> = ({ onWin, onBack }) => {
 
   // For animation only
   const colors = [
-    '#011fdc', '#7561EF', '#3B1EEB', '#14008F',
+    '#011fdc', '#7561EF', '#3B1EEB', '#011fdc',
     '#A497F7', '#7561EF', '#3B1EEB', '#011fdc'
   ];
 
@@ -147,7 +147,7 @@ const SpinWheel: React.FC<SpinWheelProps> = ({ onWin, onBack }) => {
         <circle cx="10%" cy="20%" r="30" fill="#011fdc" />
         <circle cx="80%" cy="10%" r="20" fill="#7561EF" />
         <circle cx="50%" cy="80%" r="25" fill="#3B1EEB" />
-        <circle cx="90%" cy="60%" r="15" fill="#14008F" />
+        <circle cx="90%" cy="60%" r="15" fill="#011fdc" />
       </svg>
       <div className="bg-white/70 backdrop-blur-lg rounded-3xl p-8 shadow-2xl max-w-md w-full mx-4 border border-primary-100 z-10 relative">
         {/* Header */}
